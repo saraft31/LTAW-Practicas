@@ -41,3 +41,12 @@ function suma(x,y) {
   call( () => {
     mensaje("HOLI!!")
   });
+
+  //-- Ejemplo de paso de parámetros a funciones. ¡Estos parámetros pueden a su vez ser también funciones!. 
+  //La función sum(a,b) tiene dos parámetros de entrada y devuelve su suma. 
+  //La función mensaje(msg) tiene un parámetro de entrada y no devuelve nada. 
+  //La función call(func) tiene un parámetro de entrada que es una función, a la que llama y termina
+
+  //La última llamada se utiliza muchísimo. Se la pasa a call() una función, 
+  //pero esta función se define dentro de los parámetros, en vez de hacerlo fuera y usar su nombre. 
+  //Se hace así para implementar de forma abreviada las funciones de callback
