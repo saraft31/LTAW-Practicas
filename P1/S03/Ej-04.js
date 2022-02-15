@@ -9,9 +9,9 @@ const server = http.createServer((req, res) => {
 
   //-- Hayppy server. Generar respuesta
   //-- Código: todo ok
-  res.statusCode = 200;
-  res.statusMessage = "OK :-)";
-  res.setHeader('Content-Type', 'text/plain');
+  res.statusCode = 200; //codigo standar todo OK
+  res.statusMessage = "OK :-)"; // mensaje que va con el code
+  res.setHeader('Content-Type', 'text/plain'); //envio el cuero (texto plano)
   res.write("Soy el happy server\n");
   res.end()
 
