@@ -12,8 +12,8 @@ console.log("  * Ruta: " + myURL.pathname);
 console.log("  * Busqueda: " + myURL.search);
 
 //-- Recorrer todas las búsquedas
-myURL.searchParams.forEach((value, name)=>{
-  console.log("      * Parametro: " + name + " = " + value);
+myURL.searchParams.forEach((value, name)=>{ 
+  console.log("      * Parametro: " + name + " = " + value); 
 });
 
 //-- Imprimir directamente los valores de los parametros
