@@ -37,7 +37,10 @@ console.log("MENSAJE F");
 //---- Llega una solicitud
 //-- MENSAJE A
 //-- MENSAJE D
+//----Llega evento tipo data
+//-- MENSAJE B
 //---- Evento END
 //-- MENSAJE C
 
-// curl "127.0.0.1:8080" solicitud que hago 
+// curl "127.0.0.1:8080" solicitud tipo 1 que hago 
+//curl  -d "cuerpo" 127.0.0.1:8080 solicitud tipo 2 que hago 
