@@ -69,6 +69,10 @@ const server = http.createServer(function (req, res) {
         if (err) {
             code = 404
             message = "Not Found"
+            data = fs.readFileSync('./tienda_error.html')
+            res.writeHead(code, {'Content-Type': 'text/html'});
+            res.write(data);
+            res.end();
         }else{
             res.statusCode = code; 
             res.statusMessage = message;
