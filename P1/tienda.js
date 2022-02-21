@@ -16,7 +16,7 @@ const fs = require('fs');
 const url = require('url');
 
 //-- Definir el puerto a utilizar
-const PUERTO = 9000;
+const PUERTO = 8080;
 
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
@@ -24,24 +24,62 @@ console.log("Arrancando servidor...");
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
     
-    //-- Indicar que se ha recibido una peticion
-    console.log("Peticion Recibida");
+    //-- Url que pide el cliente
+    const myUrl = new URL(req.url, 'http://' + req.headers['host']);
+    console.log("\nSe ha solicitado el recurso: " + myUrl.pathname);
 
-    //-- Crear el objeto URL del mensaje de solitud (req)
-    //-- y coger el recurso (url)
-    let myURL = url.parse(req.url, true);
+    //-- Escribir en consola la ruta de nuestro recurso
+    console.log("Peticion Recibida: " + myUrl);
 
 
-    //-- Cabecera que indica el tipo de datos del
-    //-- cuerpo de la respuesta: Texto plano
-    res.setHeader('Content-Type', 'text/plain');
+    var mine = {
+        '/'    : 'text/html',
+        'html' : 'text/html',
+        'css'  : 'text/css',
+        'jfif' : 'image/jfif',
+        'png'  : 'image/png',
+        'gif'  : 'image/gif',
+      
+    };
+    
+    let filename = ""
 
-    //-- Mensaje del cuerpo
-    res.write("Soy el Happy server!!\n");
+    
+    //-- Obtenemos el fichero correspondiente.
+    if(myUrl.pathname == '/'){
+        filename += "./tienda.html"; //-- Página principal de la tienda
+    }else{
+        filename += "." + myUrl.pathname;
+    }
+    console.log("Filename:",filename);
 
-    //-- Terminar la respuesta y enviarla
-    res.end();
+    // -- Buscamos el "." final para poder indicar que tipo mine es
+    let hastaPunto = myUrl.pathname.lastIndexOf(".");
+    let type = myUrl.pathname.slice(hastaPunto + 1);
+    console.log("Tipo de mine:", mine[type])
 
+
+    //--respuesta por defecto
+    let code = 200;
+    let message = "OK";
+
+    fs.readFile(filename, (err, data) => {
+
+        //si hay error
+        if (err) {
+            code = 404
+            message = "Not Found"
+        }else{
+            res.statusCode = code; 
+            res.statusMessage = message;
+            res.writeHead(code, {'Content-Type': mine[type]});
+            res.write(data);
+            res.end();
+        }
+
+    });
+
+    
 
 });
 
