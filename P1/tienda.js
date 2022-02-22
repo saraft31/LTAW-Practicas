@@ -39,6 +39,7 @@ const server = http.createServer(function (req, res) {
         'jfif' : 'image/jfif',
         'png'  : 'image/png',
         'gif'  : 'image/gif',
+        'jpg'  : 'image/jpg',
       
     };
     
