@@ -40,6 +40,7 @@ const server = http.createServer(function (req, res) {
         'png'  : 'image/png',
         'gif'  : 'image/gif',
         'jpg'  : 'image/jpg',
+        'js'   : 'text/js',
       
     };
     
