@@ -21,3 +21,17 @@ bTablas.onclick = () => {
     document.getElementById('productos').style.display = 'none';
     //document.getElementById('invertidores').style.display = 'none';
 }
+
+bFija.onclick = () => {
+    
+    console.log("activo deslizadores");
+    document.getElementById('productos').style.display = 'none';
+    //document.getElementById('invertidores').style.display = 'none';
+}
+
+bBotas.onclick = () => {
+    
+    console.log("activo deslizadores");
+    document.getElementById('productos').style.display = 'none';
+    //document.getElementById('invertidores').style.display = 'none';
+}
