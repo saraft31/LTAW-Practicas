@@ -41,6 +41,7 @@ const server = http.createServer(function (req, res) {
         'gif'  : 'image/gif',
         'jpg'  : 'image/jpg',
         'js'   : 'text/js',
+        'ttf'  : 'txt/ttf',
       
     };
     
