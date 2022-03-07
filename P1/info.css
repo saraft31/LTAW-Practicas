@@ -1,4 +1,5 @@
 body {
+    background: no-repeat;
     background-image: url('fondo.jpg');
     background-size: cover;
     position: absolute ;
@@ -33,4 +34,13 @@ h3 {
     height: 25%;
     width: 25%;
     
+}
+
+#inicio{
+    
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 12px;
 }
