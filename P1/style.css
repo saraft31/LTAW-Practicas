@@ -8,3 +8,11 @@ body {
    background-size: cover;
    font-family: Verdana;
 }
+
+h2{
+   text-align: center;
+   background-color: rgba(64, 142, 243, 0.61);
+   padding: 150px;
+   border-radius: 8px;
+   font-size: large;
+}
