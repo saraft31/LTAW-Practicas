@@ -31,16 +31,16 @@
         {
             "cliente1":[
                 {
-                    "name": "sara",
                     "user": "saraft",
-                    "correo": "saraft@ltaw.com"
+                    "correo": "saraft@ltaw.com",
+                    "contraseña": "saraft"
                 }
             ],
             "cliente2":[
                 {
-                    "name": "root",
                     "user": "root",
-                    "correo": "root@ltaw.com"
+                    "correo": "root@ltaw.com",
+                    "contraseña": "root"
                 }
             ]
         }
@@ -53,7 +53,7 @@
                    "direccion": "saraft@ltaw.com",
                    "tarjeta": 123456789,
                    "lista":[
-                       
+
                    ]
                 }
             ]
