@@ -1,0 +1,62 @@
+{
+    "productos":[
+        {
+            "agendas":[
+                {
+                    "name": "moleskine",
+                    "descripción": "negra tapa dura",
+                    "precio": 10,
+                    "stock": 40
+                }
+            ],
+            "calendarios":[
+                {
+                    "name": "mrputerful",
+                    "descripción": "frases no bonitas",
+                    "precio": 10,
+                    "stock": 40
+                }
+            ],
+            "subrayadores":[
+                {
+                    "name": "pastel",
+                    "descripción": "colores claritos",
+                    "precio": 10,
+                    "stock": 40
+                }
+            ]
+        }
+    ],
+    "clientes":[
+        {
+            "cliente1":[
+                {
+                    "name": "sara",
+                    "user": "saraft",
+                    "correo": "saraft@ltaw.com"
+                }
+            ],
+            "cliente2":[
+                {
+                    "name": "root",
+                    "user": "root",
+                    "correo": "root@ltaw.com"
+                }
+            ]
+        }
+    ],
+    "pedidos":[
+        {
+            "pedido1":[
+                {
+                   "user": "saraft",
+                   "direccion": "saraft@ltaw.com",
+                   "tarjeta": 123456789,
+                   "lista":[
+                       
+                   ]
+                }
+            ]
+        }
+    ]
+}
