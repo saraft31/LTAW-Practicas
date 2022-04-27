@@ -12,7 +12,25 @@ body {
 h2{
    text-align: center;
    background-color: rgba(64, 142, 243, 0.61);
-   padding: 150px;
+   padding: 50px;
    border-radius: 8px;
    font-size: large;
 }
+
+div {
+   background-color: rgba(240, 248, 255, 0.474);
+   margin-left: 20%;
+   margin-right: 20%;
+   padding: 12px;
+   border-radius: 8px;
+}
+
+h3 {
+   text-align: center;
+   background-color: rgba(135, 187, 255, 0.83);
+   margin-left: 20%;
+   margin-right: 20%;
+   padding: 5px;
+   border-radius: 8px;
+}
+
