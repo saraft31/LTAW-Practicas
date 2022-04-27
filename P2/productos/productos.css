@@ -1,0 +1,11 @@
+@font-face {
+    font-family: Verdana;
+    src: url(Verdana.ttf);
+}
+
+body {
+    background-image: url('/imagenes/fondo.jpg');
+    background-size: cover;
+    font-family: Verdana;
+    
+}
