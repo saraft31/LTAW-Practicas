@@ -1,26 +1,34 @@
 {
     "productos":[
         {
-            "agendas":[
-                {
-                    "name": "moleskine",
-                    "descripción": "negra tapa dura",
-                    "precio": 10,
-                    "stock": 40
-                }
-            ],
-            "calendarios":[
-                {
-                    "name": "mrputerful",
-                    "descripción": "frases no bonitas",
-                    "precio": 10,
-                    "stock": 40
-                }
-            ],
             "subrayadores":[
                 {
                     "name": "pastel",
                     "descripción": "colores claritos",
+                    "precio": 10,
+                    "stock": 40
+                }
+            ],
+            "post-it":[
+                {
+                    "name": "post-it",
+                    "descripción": "adhesivos de colores",
+                    "precio": 10,
+                    "stock": 40
+                }
+            ],
+            "boligrafos":[
+                {
+                    "name": "boligrafos",
+                    "descripción": "de colores punta fina",
+                    "precio": 10,
+                    "stock": 40
+                }
+            ],
+            "cuadernos":[
+                {
+                    "name": "cuadrnos",
+                    "descripción": "de colores tapa dura y anillas",
                     "precio": 10,
                     "stock": 40
                 }
