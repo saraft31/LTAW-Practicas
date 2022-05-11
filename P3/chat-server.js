@@ -8,15 +8,21 @@ const express = require('express')
 // app web vacía
 const app = express()
 
-//asociar serv http com la
-const http = require('http').Server(app);
+//-- Crear un servidor, asociado a la App de express
+const server = http.Server(app);
 
-//-- Biblioteca socket.io en el lado del servidor
-const io = require('socket.io')(http);
+//-- Crear el servidor de websockets, asociado al servidor http
+const io = socket(server);
+
+//-- Nombre del fichero JSON a escribir
+//const FICHERO_JSON_OUT = "ids.json"
 
 //-- Definir el puerto a utilizar
 const PUERTO = 9090
 
+io.on('connect', (socket) => {
+    console.log('conectado');
+});
 //-- Lanzar servidor
 http.listen(PUERTO, function(){
     console.log('Servidor lanzado en puerto ' + PUERTO);
@@ -24,3 +30,4 @@ http.listen(PUERTO, function(){
 
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
+
