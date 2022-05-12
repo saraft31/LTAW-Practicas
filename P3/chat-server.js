@@ -1,23 +1,15 @@
 // chat del server js
 
-//dependencias 
-
 
 const express = require('express')
-
 // app web vacía
 const app = express()
 const http = require('http').Server(app);
-
-
 //-- Crear el servidor de websockets, asociado al servidor http
 const io = require('socket.io')(http);
 
 //-- Contador de usuarios
 let cont_user = 0;
-
-//-- Nombre del fichero JSON a escribir
-//const FICHERO_JSON_OUT = "ids.json"
 
 //-- Definir el puerto a utilizar
 const PUERTO = 9090
@@ -25,10 +17,11 @@ const PUERTO = 9090
 io.on('connect', (socket) => {
     console.log('conectado');
 });
+
 //-- Lanzar servidor
 http.listen(PUERTO, function(){
     console.log('Servidor lanzado en puerto ' + PUERTO);
-  });
+});
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
@@ -42,10 +35,8 @@ app.get('/', (req, res) => {
   });
 
 
-//-- El resto de peticiones se interpretan como
-//-- ficheros estáticos
+//-- El resto de peticiones como ficheros estáticos
 app.use('/', express.static(__dirname +'/'));
-
 
 
 io.on('connection', function(socket){

@@ -16,8 +16,8 @@ const socket = io();
 //-- Se ha recibido el evento 'hello':
 //-- Es el mensaje de bienvenida del servidor
 socket.on('hello', (msg) => {
-     //-- Mensaje en la consola del navegador
+  //-- Mensaje en la consola del navegador
   console.log("Mensaje del servidor: " + msg);
-  //-- Párrafo display
+  //-- Párrafo display (escribe lo establecido en el evento hello)
   display.innerHTML = msg;
 });
