@@ -1,1 +1,7 @@
 /*hoja de estilo del chat*/
+
+body {
+    background-color: aqua;
+    /*background-image: url('fondo.png');*/
+    background-size: cover;
+ }
