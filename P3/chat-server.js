@@ -30,6 +30,15 @@ http.listen(PUERTO, function(){
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
+
+//-- PUNTOS DE ENTRADA DE LA APLICACION WEB
+//-- Defino el punto de entrada principal de mi aplicación web
+app.get('/', (req, res) => {
+    let path = __dirname + '/chat.html';
+    res.sendFile(path);
+    console.log("Acceso a " + path);
+  });
+
 io.on('connection', function(socket){
 
     //-- Sumamos uno al contador 
