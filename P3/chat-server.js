@@ -13,6 +13,9 @@ const http = require('http').Server(app);
 //-- Crear el servidor de websockets, asociado al servidor http
 const io = require('socket.io')(http);
 
+//-- Contador de usuarios
+let cont_user = 0;
+
 //-- Nombre del fichero JSON a escribir
 //const FICHERO_JSON_OUT = "ids.json"
 
@@ -26,7 +29,6 @@ io.on('connect', (socket) => {
 http.listen(PUERTO, function(){
     console.log('Servidor lanzado en puerto ' + PUERTO);
   });
-
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
@@ -39,15 +41,24 @@ app.get('/', (req, res) => {
     console.log("Acceso a " + path);
   });
 
+
+//-- El resto de peticiones se interpretan como
+//-- ficheros estáticos
+app.use('/', express.static(__dirname +'/'));
+
+
+
 io.on('connection', function(socket){
+    //-- Usuario conectado. Imprimir el identificador de su socket
+    console.log('--> Usuario conectado!. Socket id: ' + socket.id);
 
     //-- Sumamos uno al contador 
-    cont_usu += 1;
+    cont_user += 1;
 
     //-- Usuario conectado. Imprimir el identificador de su socket
     console.log('--> Usuario conectado!. Socket id: ' + socket.id);
 
-    //-- Le damos la bienvenida a través del evento 'hello'
-    socket.emit('hello', "Bienvenido al Chat Winows Live messenger Eres el usuario numero: " + cont_usu);
+    //-- Evento hello
+    socket.emit('hello', "Bienvenido al Chat Winows Live messenger Eres el usuario numero: " + cont_user);
 
 });
