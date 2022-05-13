@@ -57,7 +57,7 @@ io.on('connection', function(socket){
     console.log("Cliente: " + socket.id + ': ' + msg);
 
     //-- Enviar el mensaje a clientes conectados
-    io.emit('msg', msg);
+    io.emit('msg', cont_user + ":" + msg);
     })
 
     //-- Usuario desconectado. Imprimir el identificador de su socket
