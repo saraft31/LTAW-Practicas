@@ -58,7 +58,19 @@ io.on('connection', function(socket){
 
     //-- Enviar el mensaje a clientes conectados
     io.emit('msg', msg);
-  })
+    })
 
+    //-- Usuario desconectado. Imprimir el identificador de su socket
+    socket.on('disconnect', function(){
+        console.log('--> Usuario Desconectado. Socket id: ' + socket.id.yellow);
+        //Restamos uno al contador de usuarios
+        if (cont_user > 0){
+            cont_user = cont_user - 1;
+            console.log("Número de usuarios: " + cont_user);
+            //-- Mensaje de nuevo usuario desconectado
+            io.send("¡Usuario desconectado!");
+        };
+    });  
+  
   
 });
