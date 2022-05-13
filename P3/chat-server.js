@@ -70,7 +70,23 @@ io.on('connection', function(socket){
             //-- Mensaje de nuevo usuario desconectado
             io.send("¡Usuario desconectado!");
         };
-    });  
+    }); 
+
+    socket.on('cmd', (msg) => {
+        console.log("Cliente: " + socket.id + ': ' + msg);
+    
+        if(msg =='/help'){
+          socket.emit('cmd', " Comandos posibles: /help , /list, /hello, /date ");
+        }else if (msg =='/list') {
+          socket.emit('cmd', " Tenemos " + cont_user + " usuarios conectados en el chat " );
+        }else if (msg =='/hello') {
+          socket.emit('cmd', "Hola compañero, espero que todo te vaya genial :)");
+        }else if (msg =='/date') {
+            socket.emit('cmd', 'Hoy es: ' + "hoyFecha()");
+        }else {
+          socket.emit('cmd', " Comando Erroneo: ejecute /help para ver los comandos permitidos ");
+        }
+      })
   
   
 });

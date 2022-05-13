@@ -46,3 +46,9 @@ send.onclick = () => {
 socket.on('msg', (msg) => {
 display.innerHTML += "<br> > " + msg;
 });
+
+//-- Cuando recibimos un comando
+socket.on('cmd', (msg) => {
+  console.log("Mensaje del servidor: " + msg);
+  display.innerHTML += "<br> > " + msg;
+});
