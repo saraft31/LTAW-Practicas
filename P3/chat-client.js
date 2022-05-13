@@ -20,7 +20,9 @@ socket.on('hello', (msg) => {
   console.log("Mensaje del servidor: " + msg);
   //-- Párrafo display (escribe lo establecido en el evento hello)
   display.innerHTML = msg;
+  
 });
+
 
 //-- Botón de enviar
 send.onclick = () => {

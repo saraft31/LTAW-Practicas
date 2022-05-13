@@ -5,3 +5,27 @@ body {
     background-image: url('fondo.png');
     background-size: cover;
  }
+
+.writing{
+    width: 1050px;
+    height: 65px;
+    background-color: #f3d7ca;
+    padding: 10px 5px 0px 20px;
+    border: 5px solid #f3d7ca;
+    border-radius: 3px;
+}
+
+#msg { /* display donde escribimos el mensaje*/
+    width: 650px;
+    border: none;
+    padding: 10px 20px;
+    
+    margin-bottom: 10px;
+    border-radius: 5px;
+    resize: none;
+}
+
+#display{ /* donde aparecen los mensajes*/
+    background-color: #5156e886;
+    padding: 10px 20px;
+}

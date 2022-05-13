@@ -50,7 +50,7 @@ io.on('connection', function(socket){
     console.log('--> Usuario conectado!. Socket id: ' + socket.id);
 
     //-- Evento hello
-    socket.emit('hello', "Bienvenido al Chat Winows Live messenger Eres el usuario numero: " + cont_user);
+    socket.emit('hello', "Eres el usuario numero: " + cont_user);
 
     //-- Retrollamada de mensaje recibido del cliente
     socket.on('msg', (msg) => {
