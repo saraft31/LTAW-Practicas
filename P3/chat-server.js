@@ -52,4 +52,11 @@ io.on('connection', function(socket){
     //-- Evento hello
     socket.emit('hello', "Bienvenido al Chat Winows Live messenger Eres el usuario numero: " + cont_user);
 
+    //-- Retrollamada de mensaje recibido del cliente
+    socket.on('msg', (msg) => {
+    console.log("Cliente: " + socket.id + ': ' + msg);
+
+    //-- Enviar el mensaje a clientes conectados
+    io.emit('msg', msg);
+  })
 });

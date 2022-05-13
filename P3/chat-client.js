@@ -21,3 +21,21 @@ socket.on('hello', (msg) => {
   //-- Párrafo display (escribe lo establecido en el evento hello)
   display.innerHTML = msg;
 });
+
+//-- Botón de enviar
+send.onclick = () => {
+
+  //-- Se envía el mensaje escrito
+  //-- 'msg' son los mensajes de usuario
+  //-- Si no hay mensaje, no se envía
+  if (msg.value[0] != '/' ){
+    socket.emit('msg', msg.value)
+    //-- Borramos lo escrito
+    msg.value = "";
+
+  }else {// Si lo primero que se envía es / cuenta como comando  
+    socket.emit('cmd', msg.value)
+    //-- Borramos lo escrit
+    msg.value = "";
+  }
+}
