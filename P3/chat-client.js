@@ -33,9 +33,14 @@ send.onclick = () => {
     //-- Borramos lo escrito
     msg.value = "";
 
-  }else {// Si lo primero que se envía es / cuenta como comando  
+  }else { // Si lo primero que se envía es / cuenta como comando  
     socket.emit('cmd', msg.value)
     //-- Borramos lo escrit
     msg.value = "";
   }
 }
+
+//-- Se ha recibido un mensaje
+socket.on('msg', (msg) => {
+display.innerHTML += "<br> > " + msg;
+});
