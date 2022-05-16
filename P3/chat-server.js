@@ -61,6 +61,8 @@ io.on('connection', function(socket){
 
     //-- Usuario conectado. Imprimir el identificador de su socket
     console.log('--> Usuario conectado!. Socket id: ' + socket.id);
+    //-- Mostrar cunado se conecta un usuario
+    io.emit('conect', '--> Usuario conectado!. Número: ' + cont_user);
 
     //-- Evento hello
     socket.emit('hello', "Eres el usuario numero: " + cont_user);
@@ -71,6 +73,7 @@ io.on('connection', function(socket){
 
     //-- Enviar el mensaje a clientes conectados
     io.emit('msg', cont_user + ":" + " " + msg);
+
     })
 
     //-- Usuario desconectado. Imprimir el identificador de su socket

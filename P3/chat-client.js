@@ -47,6 +47,11 @@ socket.on('msg', (msg) => {
 display.innerHTML += "<br> > " + msg;
 });
 
+//-- Se ha conectado un usuario
+socket.on('conect', (con) => {
+  display.innerHTML += "<br> > " + con;
+});
+
 //-- Cuando recibimos un comando
 socket.on('cmd', (msg) => {
   console.log("Mensaje del servidor: " + msg);
