@@ -70,8 +70,12 @@ socket.on('cmd', (msg) => {
   console.log("Mensaje del servidor: " + msg);
   display.innerHTML += "<br> > " + msg;
 });
+// se recibe que laguien se va 
+socket.on('desconecto', (msg) => {
+  display.innerHTML += "<br> > " + msg;
+})
 
-// se recibe un zumbido 
+//-- se recibe un zumbido 
 socket.on('zumbidoRecived', (msg) => {
   zumAudio.play();
   display.innerHTML += "<br> > " + msg;
