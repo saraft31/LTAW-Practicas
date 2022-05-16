@@ -14,6 +14,7 @@ body {
     background-image: url('fondo.png');
     background-size: cover;
     font-family: Arial;
+    
 }
 
 .cabecera{
@@ -43,6 +44,7 @@ h3{
 }
 
 #msg { /* display donde escribimos el mensaje*/
+    
     width: 650px;
     border: none;
     padding: 10px 20px;
@@ -50,6 +52,7 @@ h3{
     margin-bottom: 10px;
     border-radius: 5px;
     resize: none;
+    
 }
 
 #enviar {

@@ -42,6 +42,13 @@ send.onclick = () => {
   }
 }
 
+msg.onchange = () => {
+  socket.emit('msg', msg.value);
+
+  //borrar
+  msg.value = "";
+}
+
 //-- Se ha recibido un mensaje
 socket.on('msg', (msg) => {
 display.innerHTML += "<br> > " + msg;
