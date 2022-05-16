@@ -14,6 +14,19 @@ let cont_user = 0;
 //-- Definir el puerto a utilizar
 const PUERTO = 9090
 
+
+//-- Function fecha
+function date(){
+    var hoy = new Date();
+    var dd = hoy.getDate();
+    var mm = hoy.getMonth();
+    var yyyy = hoy.getFullYear();
+    var h = hoy.getHours();
+    var m = hoy.getMinutes();
+    return dd+'/'+mm+'/'+yyyy+' --> '+ h+':'+m;
+
+}
+
 io.on('connect', (socket) => {
     console.log('conectado');
 });
@@ -82,7 +95,7 @@ io.on('connection', function(socket){
         }else if (msg =='/hello') {
           socket.emit('cmd', "Hola compañero, espero que todo te vaya genial :)");
         }else if (msg =='/date') {
-            socket.emit('cmd', 'Hoy es: ' + "hoyFecha()");
+            socket.emit('cmd', 'Hoy es: ' + date());
         }else {
           socket.emit('cmd', " Comando Erroneo: ejecute /help para ver los comandos permitidos ");
         }
