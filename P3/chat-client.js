@@ -31,7 +31,7 @@ send.onclick = () => {
   //-- 'msg' son los mensajes de usuario
   //-- Si no hay mensaje, no se envía
   if (msg.value[0] != '/' ){
-    socket.emit('msg', msg.value)
+    socket.emit('msg', zumbido.value)
     //-- Borramos lo escrito
     msg.value = "";
 
@@ -42,11 +42,16 @@ send.onclick = () => {
   }
 }
 
+//-- botón enter
 msg.onchange = () => {
   socket.emit('msg', msg.value);
 
   //borrar
   msg.value = "";
+}
+
+zumbido.onclick = () => {
+  socket.emit('zumbido', zumbido.value)
 }
 
 //-- Se ha recibido un mensaje
@@ -64,3 +69,4 @@ socket.on('cmd', (msg) => {
   console.log("Mensaje del servidor: " + msg);
   display.innerHTML += "<br> > " + msg;
 });
+

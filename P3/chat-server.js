@@ -14,7 +14,6 @@ let cont_user = 0;
 //-- Definir el puerto a utilizar
 const PUERTO = 9090
 
-
 //-- Function fecha
 function date(){
     var hoy = new Date();
@@ -74,7 +73,7 @@ io.on('connection', function(socket){
     //-- Enviar el mensaje a clientes conectados
     io.emit('msg', cont_user + ":" + " " + msg);
 
-    })
+    });
 
     //-- Usuario desconectado. Imprimir el identificador de su socket
     socket.on('disconnect', function(){
@@ -87,6 +86,12 @@ io.on('connection', function(socket){
             io.send("¡Usuario desconectado!");
         };
     }); 
+    
+    socket.on('zumbido', function(){
+        console.log('voy a mandar zumbido');
+        zumbido = 'esto es un Zumbido'
+        socket.emit('zumbido', "esto es un zumbido");
+    })
 
     socket.on('cmd', (msg) => {
         console.log("Cliente: " + socket.id + ': ' + msg);
