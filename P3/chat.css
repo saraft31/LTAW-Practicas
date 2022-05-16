@@ -1,13 +1,28 @@
 /*hoja de estilo del chat*/
+@font-face {
+    font-family: Arial Black;
+    src: url(ariblk.ttf);
+}
+
+@font-face {
+    font-family: Arial ;
+    src: url(arial.ttf);
+}
 
 body {
     /*background-color: aqua;*/
     background-image: url('fondo.png');
     background-size: cover;
+    font-family: Arial;
 }
 
 .cabecera{
     text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-family: Arial Black;
 }
 
 h3{
