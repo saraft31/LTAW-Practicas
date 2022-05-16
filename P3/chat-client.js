@@ -6,7 +6,8 @@ const display = document.getElementById("display");
 const msg = document.getElementById("msg");
 const send = document.getElementById("enviar");
 const cmd = document.getElementById("msg");
-const zumbido =document.getElementById("zumbido");
+const zumbidoBoton = document.getElementById("zumbido");
+let zumAudio = new Audio('tono_Zumbido.mp3');
 
 
 //creamos el websocket y establecemos conexión con el serv
@@ -28,10 +29,9 @@ socket.on('hello', (msg) => {
 send.onclick = () => {
 
   //-- Se envía el mensaje escrito
-  //-- 'msg' son los mensajes de usuario
   //-- Si no hay mensaje, no se envía
   if (msg.value[0] != '/' ){
-    socket.emit('msg', zumbido.value)
+    socket.emit('msg', msg.value)
     //-- Borramos lo escrito
     msg.value = "";
 
@@ -50,8 +50,9 @@ msg.onchange = () => {
   msg.value = "";
 }
 
-zumbido.onclick = () => {
-  socket.emit('zumbido', zumbido.value)
+//-- botón zumbido
+zumbidoBoton.onclick = (zum) => {
+  socket.emit('zumbido', zum.value)
 }
 
 //-- Se ha recibido un mensaje
@@ -70,3 +71,9 @@ socket.on('cmd', (msg) => {
   display.innerHTML += "<br> > " + msg;
 });
 
+// se recibe un zumbido 
+socket.on('zumbidoRecived', (msg) => {
+  zumAudio.play();
+  display.innerHTML += "<br> > " + msg;
+  console.log('estoy recibiendo un zumzumzumbido' );
+})

@@ -1,6 +1,5 @@
 // chat del server js
 
-
 const express = require('express')
 // app web vacía
 const app = express()
@@ -12,7 +11,7 @@ const io = require('socket.io')(http);
 let cont_user = 0;
 
 //-- Definir el puerto a utilizar
-const PUERTO = 9090
+const PUERTO = 5050;
 
 //-- Function fecha
 function date(){
@@ -23,7 +22,6 @@ function date(){
     var h = hoy.getHours();
     var m = hoy.getMinutes();
     return dd+'/'+mm+'/'+yyyy+' --> '+ h+':'+m;
-
 }
 
 io.on('connect', (socket) => {
@@ -71,9 +69,7 @@ io.on('connection', function(socket){
     console.log("Cliente: " + socket.id + ': ' + msg);
 
     //-- Enviar el mensaje a clientes conectados
-    io.emit('msg', cont_user + ":" + " " + msg);
-
-    });
+    io.emit('msg', cont_user + ":" + " " + msg); });
 
     //-- Usuario desconectado. Imprimir el identificador de su socket
     socket.on('disconnect', function(){
@@ -87,11 +83,11 @@ io.on('connection', function(socket){
         };
     }); 
     
-    socket.on('zumbido', function(){
-        console.log('voy a mandar zumbido');
-        zumbido = 'esto es un Zumbido'
-        socket.emit('zumbido', "esto es un zumbido");
-    })
+    // recivo zumbido 
+    socket.on('zumbido', () => {
+      io.emit('zumbidoRecived', 'estas recibiendo un zumbido')
+    });
+
 
     socket.on('cmd', (msg) => {
         console.log("Cliente: " + socket.id + ': ' + msg);
@@ -108,6 +104,4 @@ io.on('connection', function(socket){
           socket.emit('cmd', " Comando Erroneo: ejecute /help para ver los comandos permitidos ");
         }
       })
-  
-  
 });
