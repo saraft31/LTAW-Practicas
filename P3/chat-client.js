@@ -35,8 +35,6 @@ send.onclick = () => {
     //-- Borramos lo escrito
     msg.value = "";
 
-  }else if (msg.value == ''){
-    msg.value = "";
   }else { // Si lo primero que se envía es / cuenta como comando  
     socket.emit('cmd', msg.value)
     //-- Borramos lo escrit
@@ -46,10 +44,16 @@ send.onclick = () => {
 
 //-- botón enter
 msg.onchange = () => {
-  socket.emit('msg', msg.value);
+  if (msg.value[0] != '/' ){
+    socket.emit('msg', msg.value)
+    //-- Borramos lo escrito
+    msg.value = "";
 
-  //borrar
-  msg.value = "";
+  }else { // Si lo primero que se envía es / cuenta como comando  
+    socket.emit('cmd', msg.value)
+    //-- Borramos lo escrit
+    msg.value = "";
+  }
 }
 
 //-- botón zumbido

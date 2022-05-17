@@ -22,7 +22,7 @@ const PUERTO = 8080;
 function date(){
     var hoy = new Date();
     var dd = hoy.getDate();
-    var mm = hoy.getMonth();
+    var mm = hoy.getMonth() + 1; //si no le sumo 1 sale un mes menos idk
     var yyyy = hoy.getFullYear();
     var h = hoy.getHours();
     var m = hoy.getMinutes();
@@ -84,7 +84,6 @@ io.on('connection', function(socket){
       for (let  i= 0; i < Usuarios.length; i++){
         if (Usuarios[i]["id_usuario"].includes(socket.id)){
           numero = Usuarios[i]["numero_usuario"];
-          console.log(numero);
         }
       }
 
@@ -104,7 +103,6 @@ io.on('connection', function(socket){
         for (let  i= 0; i < Usuarios.length; i++){
           if (Usuarios[i]["id_usuario"].includes(socket.id)){
             numero = Usuarios[i]["numero_usuario"];
-            console.log(numero);
           }
         }
         io.emit('desconecto', "--> Usuario numero " + numero + " desconectado!");
@@ -117,7 +115,7 @@ io.on('connection', function(socket){
     
     // recivo zumbido 
     socket.on('zumbido', () => {
-      io.emit('zumbidoRecived', 'estas recibiendo un zumbido')
+      io.emit('zumbidoRecived', 'Estas recibiendo un zumbido')
     });
 
 
@@ -127,7 +125,8 @@ io.on('connection', function(socket){
         if(msg =='/help'){
           socket.emit('cmd', " Comandos posibles: /help , /list, /hello, /date ");
         }else if (msg =='/list') {
-          socket.emit('cmd', " Tenemos " + cont_user + " usuarios conectados en el chat " );
+          console.log(Usuarios);
+          socket.emit('cmd', " Tenemos " + cont_user + " usuarios conectados en el chat "  );
         }else if (msg =='/hello') {
           socket.emit('cmd', "Hola compañero, espero que todo te vaya genial :)");
         }else if (msg =='/date') {
