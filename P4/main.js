@@ -1,5 +1,8 @@
 // chat del server js
 
+//-- Cargar el módulo de electron
+//const electron = require('electron');
+
 const { createSocket } = require('dgram');
 const express = require('express');
 const fs = require('fs');
