@@ -75,13 +75,12 @@ io.on('connection', function(socket){
     let data = JSON.stringify(Usuarios);
     fs.writeFileSync(Fichero_Usuarios, data);
     
-    //-- Evento hello
     socket.emit('hello', "Eres el usuario numero: " + cont_user);
 
     //-- Retrollamada de mensaje recibido del cliente
     socket.on('msg', (msg) => {
       console.log("Cliente: " + socket.id + ': ' + msg);
-      let soc = socket.id;
+
       for (let  i= 0; i < Usuarios.length; i++){
         if (Usuarios[i]["id_usuario"].includes(socket.id)){
           numero = Usuarios[i]["numero_usuario"];
@@ -96,13 +95,19 @@ io.on('connection', function(socket){
       }else{
         io.emit('msg', numero + ": " + msg);
       }
-       
+ 
     });
 
     //-- Usuario desconectado. Imprimir el identificador de su socket
     socket.on('disconnect', function(){
         console.log('--> Usuario Desconectado. Socket id: ' + socket.id);
-        io.emit('desconecto', "--> Usuario numero " + cont_user + " desconectado!");
+        for (let  i= 0; i < Usuarios.length; i++){
+          if (Usuarios[i]["id_usuario"].includes(socket.id)){
+            numero = Usuarios[i]["numero_usuario"];
+            console.log(numero);
+          }
+        }
+        io.emit('desconecto', "--> Usuario numero " + numero + " desconectado!");
         //Restamos uno al contador de usuarios
         if (cont_user > 0){
             cont_user = cont_user - 1;
