@@ -1,6 +1,8 @@
 // chat del server js
 
-const express = require('express')
+const { createSocket } = require('dgram');
+const express = require('express');
+const fs = require('fs');
 // app web vacía
 const app = express()
 const http = require('http').Server(app);
@@ -10,6 +12,9 @@ const io = require('socket.io')(http);
 //-- Contador de usuarios
 let cont_user = 0;
 
+//ficher¡
+const Fichero_Usuarios = "chat.json";
+let Usuarios = [];
 //-- Definir el puerto a utilizar
 const PUERTO = 8080;
 
@@ -61,26 +66,47 @@ io.on('connection', function(socket){
     //-- Mostrar cunado se conecta un usuario
     io.emit('conect', '--> Usuario conectado!. Número: ' + cont_user);
 
+    let datos = {
+      id_usuario: socket.id,
+      numero_usuario: cont_user.toString(),
+    }
+
+    Usuarios.push(datos);
+    let data = JSON.stringify(Usuarios);
+    fs.writeFileSync(Fichero_Usuarios, data);
+    
     //-- Evento hello
     socket.emit('hello', "Eres el usuario numero: " + cont_user);
 
     //-- Retrollamada de mensaje recibido del cliente
     socket.on('msg', (msg) => {
-    console.log("Cliente: " + socket.id + ': ' + msg);
+      console.log("Cliente: " + socket.id + ': ' + msg);
+      let soc = socket.id;
+      for (let  i= 0; i < Usuarios.length; i++){
+        if (Usuarios[i]["id_usuario"].includes(socket.id)){
+          numero = Usuarios[i]["numero_usuario"];
+          console.log(numero);
+        }
+      }
 
-    //-- Enviar el mensaje a clientes conectados
-    io.emit('msg', cont_user + ":" + " " + msg); });
+      //-- Enviar el mensaje a clientes conectados
+      if (msg.value == ' '){
+        console.log("entra?")
+        msg.value = "";
+      }else{
+        io.emit('msg', numero + ": " + msg);
+      }
+       
+    });
 
     //-- Usuario desconectado. Imprimir el identificador de su socket
     socket.on('disconnect', function(){
         console.log('--> Usuario Desconectado. Socket id: ' + socket.id);
-        io.emit('desconecto', "Usuario numero " + cont_user + " desconectado!");
+        io.emit('desconecto', "--> Usuario numero " + cont_user + " desconectado!");
         //Restamos uno al contador de usuarios
         if (cont_user > 0){
             cont_user = cont_user - 1;
             console.log("--> Número de usuarios: " + cont_user);
-            //-- Mensaje de nuevo usuario desconectado
-            
         };
     }); 
     
