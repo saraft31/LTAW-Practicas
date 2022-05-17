@@ -1,7 +1,7 @@
 // chat del server js
 
 //-- Cargar el módulo de electron
-//const electron = require('electron');
+const electron = require('electron');
 
 const { createSocket } = require('dgram');
 const express = require('express');
@@ -139,3 +139,22 @@ io.on('connection', function(socket){
         }
       })
 });
+
+console.log("Arrancando electron...");
+
+//-- Punto de entrada. En cuanto electron está listo,
+//-- ejecuta esta función
+electron.app.on('ready', () => {
+    console.log("Evento Ready!");   
+  
+    //-- Crear la ventana principal de nuestra aplicación
+    win = new electron.BrowserWindow({
+      width: 600,  //-- Anchura 
+      height: 400  //-- Altura
+    });
+
+     //-- Para quitar menu por defecto de la parte superior 
+    //win.setMenuBarVisibility(false)
+  
+  
+  });
