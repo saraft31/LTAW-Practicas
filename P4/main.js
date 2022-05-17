@@ -155,6 +155,9 @@ electron.app.on('ready', () => {
 
      //-- Para quitar menu por defecto de la parte superior 
     //win.setMenuBarVisibility(false)
-  
+    
+    //-- Cargar contenido web en la ventana
+    //-- La ventana es en realidad.... ¡un navegador!
+    win.loadURL('https://www.urjc.es/etsit');
   
   });
