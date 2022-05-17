@@ -8,7 +8,7 @@ const fs = require('fs');
 const url = require('url');
 
 //-- Definir el puerto a utilizar
-const PUERTO = 8080;
+const PUERTO = 9090;
 
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
