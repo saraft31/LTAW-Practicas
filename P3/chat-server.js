@@ -11,7 +11,7 @@ const io = require('socket.io')(http);
 let cont_user = 0;
 
 //-- Definir el puerto a utilizar
-const PUERTO = 5050;
+const PUERTO = 8080;
 
 //-- Function fecha
 function date(){

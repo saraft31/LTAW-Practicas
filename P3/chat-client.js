@@ -53,6 +53,7 @@ msg.onchange = () => {
 //-- botón zumbido
 zumbidoBoton.onclick = (zum) => {
   socket.emit('zumbido', zum.value)
+  console.log(zum.value);
 }
 
 //-- Se ha recibido un mensaje
