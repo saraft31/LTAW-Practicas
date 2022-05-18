@@ -38,13 +38,6 @@ io.on('connect', (socket) => {
     console.log('conectado');
 });
 
-//-- Lanzar servidor
-http.listen(PUERTO, function(){
-    console.log('Servidor lanzado en puerto ' + PUERTO);
-});
-//-- Mensaje de arranque
-console.log("Arrancando servidor...");
-
 
 //-- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Defino el punto de entrada principal de mi aplicación web
@@ -65,6 +58,9 @@ io.on('connection', function(socket){
 
     //-- Sumamos uno al contador 
     cont_user += 1;
+
+    //-- enviar numero usuarios conectados
+    win.webContents.send('usuarios', cont_user);
 
     //-- Usuario conectado. Imprimir el identificador de su socket
     console.log('--> Usuario conectado!. Socket id: ' + socket.id);
@@ -159,7 +155,7 @@ electron.app.on('ready', () => {
         nodeIntegration: true,
         contextIsolation: false
       }
-      
+
     });
 
      //-- Para quitar menu por defecto de la parte superior 
@@ -183,3 +179,10 @@ electron.app.on('ready', () => {
     win.webContents.send('msg', msg);
 
   });
+
+//-- Lanzar servidor
+http.listen(PUERTO, function(){
+  console.log('Servidor lanzado en puerto ' + PUERTO);
+});
+//-- Mensaje de arranque
+console.log("Arrancando servidor...");

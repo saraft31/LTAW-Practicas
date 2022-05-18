@@ -8,6 +8,7 @@
     },
     "dependencies": {
         "electron": "^18.2.3",
+        "http": "^0.0.1-security",
         "ip": "^1.1.8"
     }
 }
