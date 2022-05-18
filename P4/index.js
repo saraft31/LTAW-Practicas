@@ -26,7 +26,7 @@ usuarios.innerHTML = 0;
 btn_test.onclick = () => {
     console.log("Botón ON!");
     //-- Enviar mensaje al proceso principal
-    electron.ipcRenderer.invoke('test', "Probando, probando.... !!");
+    electron.ipcRenderer.invoke('test', "Este mensaje es de prueba!!");
 }
 
 //-- Mensaje recibido del proceso MAIN para la ip

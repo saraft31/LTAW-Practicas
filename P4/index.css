@@ -30,6 +30,7 @@ h1{
     overflow: auto;
     margin-bottom: 15px;
     border-radius: 3px;
+    margin-left: 2%;
 }
 
 #derecha{
@@ -41,10 +42,12 @@ h1{
     height: 700px;
     overflow: auto;
     margin-bottom: 15px;
-    border-radius: 3px;
+    border-radius: 4px;
+    margin-left: 2%;
 }
 
 #btn_test{
+    float: center;
     width: 100px;
     height: 45px;
     border-radius: 5px;
@@ -54,4 +57,10 @@ h1{
 
 #btn_test:hover{
     background-color: #a4a8f4ce;
+}
+
+#display{
+    background-color: #a4a8f4ce;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
