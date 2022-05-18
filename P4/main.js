@@ -12,6 +12,8 @@ const http = require('http').Server(app);
 //-- Crear el servidor de websockets, asociado al servidor http
 const io = require('socket.io')(http);
 
+const ip = require('ip');
+
 //-- Contador de usuarios
 let cont_user = 0;
 
@@ -150,7 +152,14 @@ electron.app.on('ready', () => {
     //-- Crear la ventana principal de nuestra aplicación
     win = new electron.BrowserWindow({
       width: 600,  //-- Anchura 
-      height: 400  //-- Altura
+      height: 400,  //-- Altura
+
+       //-- Permitir que la ventana tenga ACCESO AL SISTEMA
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false
+      }
+      
     });
 
      //-- Para quitar menu por defecto de la parte superior 
@@ -159,5 +168,18 @@ electron.app.on('ready', () => {
     //-- Cargar contenido web en la ventana
     //-- La ventana es en realidad.... ¡un navegador!
     win.loadFile("index.html");
-  
+
+    win.on('ready-to-show', () => {
+      win.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
+    });
+  });
+
+  //-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
+  //-- renderizado. Al recibirlos se escribe una cadena en la consola
+  electron.ipcMain.handle('test', (event, msg) => {
+    console.log("-> Mensaje: " + msg);
+    //-- Enviar mensaje de prueba
+    io.send(msg);
+    win.webContents.send('msg', msg);
+
   });

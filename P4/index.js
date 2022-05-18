@@ -30,21 +30,21 @@ btn_test.onclick = () => {
 }
 
 //-- Mensaje recibido del proceso MAIN para la ip
-electron.ipcRenderer.on('ip', (event, message) => {
-    console.log("Recibida Ip: " + message);
-    info4.innerHTML = message;
+electron.ipcRenderer.on('ip', (event, msg) => {
+    console.log("Recibida Ip: " + msg);
+    info4.innerHTML = msg;
     //-- Generar el codigo qr de la url
 });
 
 //-- Mensaje recibido del proceso MAIN para el numero de usuarios
-electron.ipcRenderer.on('usuarios', (event, message) => {
-    console.log("Recibido numero de usuarios: " + message);
-    usuarios.innerHTML = message;
+electron.ipcRenderer.on('usuarios', (event, msg) => {
+    console.log("Recibido numero de usuarios: " + msg);
+    usuarios.innerHTML = msg;
 });
 
 //-- Mensaje recibido del proceso MAIN de los usuarios
-electron.ipcRenderer.on('msg', (event, message) => {
-    console.log("Recibido numero de usuarios: " + message);
-    display.innerHTML += message + "<br>";
+electron.ipcRenderer.on('msg', (event, msg) => {
+    console.log("Recibido numero de usuarios: " + msg);
+    display.innerHTML += msg + "<br>";
     display.scrollTop = display.scrollHeight;
 });
