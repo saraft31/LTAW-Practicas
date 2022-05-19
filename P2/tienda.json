@@ -40,15 +40,13 @@
             "cliente1":[
                 {
                     "user": "saraft",
-                    "correo": "saraft@ltaw.com",
-                    "contraseña": "saraft"
+                    "correo": "saraft@ltaw.com"
                 }
             ],
             "cliente2":[
                 {
                     "user": "root",
-                    "correo": "root@ltaw.com",
-                    "contraseña": "root"
+                    "correo": "root@ltaw.com"
                 }
             ]
         }

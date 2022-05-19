@@ -121,11 +121,55 @@ const server = http.createServer(function (req, res) {
             }
 
             break;
-            
+        //estilo
         case 'tienda.css':
             content = fs.readFileSync(filename);
             break;
-
+        //imagenes
+        case 'imagenes/fondo.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'imagenes/bolis.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'imagenes/cuadernos.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'imagenes/cuadernos.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'imagenes/posit.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'imagenes/sub.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'imagenes/icono.png':
+            content = fs.readFileSync(filename);
+            break;
+        //letra
+        case 'Verdana.ttf':
+            content = fs.readFileSync(filename);
+            break;
+        
+        // ficheros html
+        case 'tienda.html':
+            content = TIENDA;
+            get_cookie(req);
+            break; 
+        case 'tienda_error.html':
+            content = ERROR;
+            get_cookie(req);
+            break;
+        case 'login.html':
+            content = FORMULARIO;
+            get_cookie(req);
+            break;
+        case 'login_res.html':
+            content = RESPUESTA;
+            get_cookie(req);
+            break;
+            
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
             res.setHeader('Content-Type','text/html');
