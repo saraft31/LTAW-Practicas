@@ -13,6 +13,35 @@ const PUERTO = 9090;
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
+
+function get_cookie(req){
+
+    //-- Leer las cookies
+    const cookie = req.headers.cookie;
+    if (cookie) {
+        console.log("Cookie: " + cookie);
+
+        //-- Obtener un array con todos los pares nombre-valor
+        let pares = cookie.split(";");
+        
+        pares.forEach((element, index) => {
+    
+            //-- Obtener los nombres y valores por separado
+            let [nombre, valor] = element.split('=');
+
+            //-- Leer el usuario
+            //-- Solo si el nombre es 'user'
+            if (nombre.trim() === 'user') {
+                user = valor;
+            }
+        });
+    } else {
+        console.log('No hay cookie');
+    }
+}
+
+
+
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
     
@@ -75,12 +104,12 @@ const server = http.createServer(function (req, res) {
             res.write(data);
             res.end();
         }
-
     });
-
-    
-
 });
+
+
+
+
 
 //-- Activar el servidor
 server.listen(PUERTO);
