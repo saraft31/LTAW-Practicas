@@ -94,12 +94,14 @@ const server = http.createServer(function (req, res) {
             let correo = myUrl.searchParams.get('correo');
 
             let info = JSON.parse(TIENDA_JSON);
+
             let user1 = info['usuarios'][0]['user'];
             let correo1 = info['usuarios'][0]['correo'];
             let name1 = info['usuarios'][0]['nombre'];
-            let name2 = info['usuarios'][1]['nombre'];
+            
             let user2 = info['usuarios'][1]['user'];
             let correo2 = info['usuarios'][1]['correo'];
+            let name2 = info['usuarios'][1]['nombre'];
 
             content = RESPUESTA;
 
@@ -107,17 +109,17 @@ const server = http.createServer(function (req, res) {
                 console.log("Coincide");
 
                 content = content.replace("HTML_EXTRA", "Bienvenido " + name1);
-                mime[type]= "text/html";
+                mine[type]= "text/html";
 
             }else if (correo==correo2 && usuario==user2){
                 console.log("Coincide");
 
                 content = content.replace("HTML_EXTRA", "Bienvenido " + name2);
-                mime[type]= "text/html";
+                mine[type]= "text/html";
 
             }else{
                 content = content.replace("HTML_EXTRA", "NO ESTA REGISTRADO");
-                mime[type]= "text/html";
+                mine[type]= "text/html";
             }
 
             break;
