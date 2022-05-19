@@ -71,10 +71,14 @@ const server = http.createServer(function (req, res) {
         'jpg'  : 'image/jpg',
         'js'   : 'text/js',
         'ttf'  : 'txt/ttf',
+        'otf'  : 'text/otf',
+        'webp' : 'image/webp',
+        'json' : 'application/json'
       
     };
-    
-    
+
+    let hastaPunto = myUrl.pathname.lastIndexOf(".");
+    let type = myUrl.pathname.slice(hastaPunto+1);
     
     let filename = myUrl.pathname;
     filename = filename.substr(1);
@@ -117,6 +121,8 @@ const server = http.createServer(function (req, res) {
             }
 
             break;
+            
+        //case:
 
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
@@ -129,13 +135,30 @@ const server = http.createServer(function (req, res) {
 
 
 
+    //-- Si hay datos en el cuerpo, se imprimen
+    req.on('data', (cuerpo) => {
+    
+        //-- Los datos del cuerpo son caracteres
+        req.setEncoding('utf8');
+        console.log(`Cuerpo (${cuerpo.length} bytes)`);
+        console.log(` ${cuerpo}`);
+        usuario= recortar(data, "=")
+        console.log(usuario);
+    });
+    
+
+
+    //-- Esto solo se ejecuta cuando llega el final del mensaje de solicitud
+        req.on('end', ()=> {
+
+            //-- Generar respuesta
+            res.setHeader('Content-Type', mine[type]);
+            res.write(content);
+            res.end();
+            
+        });
+
 });
-
-
-
-
-
-
 
 
 //-- Activar el servidor
