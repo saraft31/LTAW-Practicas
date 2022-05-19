@@ -10,8 +10,13 @@ const url = require('url');
 //-- fich
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
+const FORMULARIO = fs.readFileSync('login.html','utf-8');
+const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
+const ERROR = fs.readFileSync('tienda_error.html');
+const TIENDA = fs.readFileSync('tienda.html','utf-8');
+
 //-- Definir el puerto a utilizar
-const PUERTO = 9090;
+const PUERTO = 8080;
 
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
@@ -70,44 +75,7 @@ const server = http.createServer(function (req, res) {
     };
     
     
-    //-- Obtenemos el fichero correspondiente.
-    if(myUrl.pathname == '/'){
-        filename += "./tienda.html"; //-- Página principal de la tienda
-    }else{
-        filename += "." + myUrl.pathname;
-    }
-    console.log("Filename:",filename);
-
-    // -- Buscamos el "." final para poder indicar que tipo mine es
-    let hastaPunto = myUrl.pathname.lastIndexOf(".");
-    let type = myUrl.pathname.slice(hastaPunto + 1);
-    console.log("Tipo de mine:", mine[type])
-
-
-    //--respuesta por defecto
-    let code = 200;
-    let message = "OK";
-
-    fs.readFile(filename, (err, data) => {
-
-        //si hay error
-        if (err) {
-            code = 404
-            message = "Not Found"
-            data = fs.readFileSync('./tienda_error.html')
-            res.writeHead(code, {'Content-Type': 'text/html'});
-            res.write(data);
-            res.end();
-        }else{
-            res.statusCode = code; 
-            res.statusMessage = message;
-            res.writeHead(code, {'Content-Type': mine[type]});
-            res.write(data);
-            res.end();
-        }
-
-    });
-
+    
     let filename = myUrl.pathname;
     filename = filename.substr(1);
 
