@@ -28,12 +28,12 @@
     ],
     "usuarios":[
         {
-            "nombre": "sara",
+            "nombre": "Sara",
             "user": "saraft",
             "correo": "saraft@ltaw.com"
         },
         {
-            "nombre": "root",
+            "nombre": "Root",
             "user": "root",
             "correo": "root@ltaw.com"
         }

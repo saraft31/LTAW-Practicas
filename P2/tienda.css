@@ -9,3 +9,11 @@ body {
     font-family: Verdana;
     
 }
+
+button{
+    background-color: aquamarine;
+}
+
+#enviar{
+    background-color: blueviolet;
+}
