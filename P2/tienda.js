@@ -15,6 +15,11 @@ const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
 const ERROR = fs.readFileSync('tienda_error.html');
 const TIENDA = fs.readFileSync('tienda.html','utf-8');
 
+const PRODUCTO1 = fs.readFileSync('1-sub.html','utf-8');
+const PRODUCTO2 = fs.readFileSync('2-post.html','utf-8');
+const PRODUCTO3 = fs.readFileSync('3-bolis.html','utf-8');
+const PRODUCTO4 = fs.readFileSync('4-cuadernos.html','utf-8');
+
 //-- Definir el puerto a utilizar
 const PUERTO = 8080;
 
@@ -169,6 +174,23 @@ const server = http.createServer(function (req, res) {
             break;
         case 'login_res.html':
             content = RESPUESTA;
+            get_cookie(req);
+            break;
+        //productos
+        case '1-sub.html':
+            content = PRODUCTO1;
+            get_cookie(req);
+            break;
+        case '2-post.html':
+            content = PRODUCTO2;
+            get_cookie(req);
+            break;
+        case '3-bolis.html':
+            content = PRODUCTO3;
+            get_cookie(req);
+            break;
+        case '4-cuadernos.html':
+            content = PRODUCTO4;
             get_cookie(req);
             break;
 
