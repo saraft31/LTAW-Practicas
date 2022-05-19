@@ -122,7 +122,9 @@ const server = http.createServer(function (req, res) {
 
             break;
             
-        //case:
+        case 'tienda.css':
+            content = fs.readFileSync(filename);
+            break;
 
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
