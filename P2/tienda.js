@@ -90,8 +90,8 @@ const server = http.createServer(function (req, res) {
             break;
         case 'login':
         
-            let usuario = myURL.searchParams.get('usuario');
-            let correo = myURL.searchParams.get('correo');
+            let usuario = myUrl.searchParams.get('usuario');
+            let correo = myUrl.searchParams.get('correo');
 
             let info = JSON.parse(TIENDA_JSON);
             let user1 = info['usuarios'][0]['user'];
@@ -169,7 +169,7 @@ const server = http.createServer(function (req, res) {
             content = RESPUESTA;
             get_cookie(req);
             break;
-            
+
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
             res.setHeader('Content-Type','text/html');

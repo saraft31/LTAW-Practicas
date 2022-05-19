@@ -1,68 +1,52 @@
 {
     "productos":[
         {
-            "subrayadores":[
-                {
-                    "name": "pastel",
-                    "descripción": "colores claritos",
-                    "precio": 10,
-                    "stock": 40
-                }
-            ],
-            "post-it":[
-                {
-                    "name": "post-it",
-                    "descripción": "adhesivos de colores",
-                    "precio": 10,
-                    "stock": 40
-                }
-            ],
-            "boligrafos":[
-                {
-                    "name": "boligrafos",
-                    "descripción": "de colores punta fina",
-                    "precio": 10,
-                    "stock": 40
-                }
-            ],
-            "cuadernos":[
-                {
-                    "name": "cuadrnos",
-                    "descripción": "de colores tapa dura y anillas",
-                    "precio": 10,
-                    "stock": 40
-                }
-            ]
-        }
-    ],
-    "clientes":[
+            "name": "pastel",
+            "descripción": "colores claritos",
+            "precio": 10,
+            "stock": 40
+        },
         {
-            "cliente1":[
-                {
-                    "user": "saraft",
-                    "correo": "saraft@ltaw.com"
-                }
-            ],
-            "cliente2":[
-                {
-                    "user": "root",
-                    "correo": "root@ltaw.com"
-                }
-            ]
+            "name": "post-it",
+            "descripción": "adhesivos de colores",
+            "precio": 10,
+            "stock": 40
+        },
+        {
+            "name": "boligrafos",
+            "descripción": "de colores punta fina",
+            "precio": 10,
+            "stock": 40
+        },
+        {
+            "name": "cuadrnos",
+            "descripción": "de colores tapa dura y anillas",
+            "precio": 10,
+            "stock": 40
+        }
+            
+    ],
+    "usuarios":[
+        {
+            "nombre": "sara",
+            "user": "saraft",
+            "correo": "saraft@ltaw.com"
+        },
+        {
+            "nombre": "root",
+            "user": "root",
+            "correo": "root@ltaw.com"
         }
     ],
+    
     "pedidos":[
         {
-            "pedido1":[
-                {
-                   "user": "saraft",
-                   "direccion": "saraft@ltaw.com",
-                   "tarjeta": 123456789,
-                   "lista":[
+            "user": "saraft",
+            "direccion": "saraft@ltaw.com",
+            "tarjeta": 123456789,
+            "lista":[
 
                    ]
-                }
-            ]
         }
     ]
 }
