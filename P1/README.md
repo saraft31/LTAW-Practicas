@@ -31,4 +31,5 @@ En la página de productos vemos 4 botones cada uno de cada tipo de producto, pi
 * Botones para desplegar los productos
 * Más productos de los requeridos en la práctica
 
-
+## Imágenes
+![](https://github.com/saraft31/LTAW-Practicas/blob/main/P1/fotos/wiki.jpeg)
