@@ -166,7 +166,6 @@ electron.app.on('ready', () => {
     //-- La ventana es en realidad.... ¡un navegador!
     win.loadFile("index.html");
 
-
     win.on('ready-to-show', () => {
       win.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
     });
