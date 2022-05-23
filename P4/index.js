@@ -1,6 +1,5 @@
 const electron = require('electron');
 const ip = require('ip');
-const { CLOSE_DESCRIPTIONS } = require('websocket/lib/WebSocketConnection');
 const qrcode = require('qrcode');
 
 //-- Obtener elementos de la interfaz
@@ -23,6 +22,7 @@ info1.textContent = process.versions.node;
 info2.textContent = process.versions.chrome;
 //-- Versión electron
 info3.textContent = process.versions.electron;
+info4.textContent = process.cwd();
 
 //-- Inicializar contador usuarios
 usuarios.innerHTML = 0;
@@ -38,9 +38,9 @@ btn_test.onclick = () => {
 //-- Mensaje recibido del proceso MAIN para la ip
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibida Ip: " + msg);
-    info4.innerHTML = msg;
+    info4.textContent = msg;
     //-- Generar el codigo qr de la url
-    qrcode.toDataURL(msg, function(err, url){
+    qrcode.toDataURL(info4.textContent, function(err, url){
         qr.src = url;
     });
 });

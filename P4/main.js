@@ -2,7 +2,7 @@
 
 //-- Cargar el módulo de electron
 const electron = require('electron');
-
+const socket = require('socket.io');
 const { createSocket } = require('dgram');
 const express = require('express');
 const fs = require('fs');
