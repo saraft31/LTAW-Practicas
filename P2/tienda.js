@@ -15,6 +15,19 @@ const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
 const ERROR = fs.readFileSync('tienda_error.html');
 const TIENDA = fs.readFileSync('tienda.html','utf-8');
 
+let productos_disp = [];
+let product_list = [];
+let productoss = JSON.parse(TIENDA_JSON);
+console.log("Lista de productos disponibles");
+console.log("-----------------------------");
+productoss["productos"].forEach((element, index)=>{
+  console.log("Articulo " + (index + 1) + ": " + element.name +
+              ", Stock: " + element.stock + ", Precio: " + element.precio);
+  productos_disp.push([element.nombre, element.descripcion, element.stock, 
+                       element.precio]);
+  product_list.push(element.nombre);
+});
+
 const PRODUCTO1 = fs.readFileSync('1-sub.html','utf-8');
 const PRODUCTO2 = fs.readFileSync('2-post.html','utf-8');
 const PRODUCTO3 = fs.readFileSync('3-bolis.html','utf-8');
@@ -146,6 +159,30 @@ const server = http.createServer(function (req, res) {
                 mine[type]= "text/html";
             }
 
+            break;
+        case 'productos':
+            let info_productos = JSON.parse(TIENDA_JSON);
+            productos = info_productos["productos"];
+
+            content_type = "application/json";
+
+            let param1 = myURL.searchParams.get('param1');
+            param1 = param1.toUpperCase();
+
+            let result = [];
+
+            for (let prod of productos) {
+                
+                prodU = prod["nombre"].toUpperCase();
+                if (prodU.startsWith(param1)) {
+                    result.push(prod);
+                }
+            }
+
+            //-- Pasar una variable a formato JSON. Se hace con el método:
+            console.log(result[0]);
+            content = JSON.stringify(result);
+            mine[type] ="text/html";
             break;
         //estilo
         case 'tienda.css':
