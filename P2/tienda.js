@@ -81,7 +81,6 @@ function get_compra(req, res, producto){
             if (nombre.trim() === 'carrito') {
                 res.setHeader('Set-Cookie', element + ': ' + producto);
             }
-
         });
     }
 }

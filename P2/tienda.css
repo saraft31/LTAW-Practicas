@@ -7,13 +7,19 @@ body {
     background-image: url('/imagenes/fondo.jpg');
     background-size: cover;
     font-family: Verdana;
-    
+    margin-left: 3%;
+    text-align: center;
 }
 h1{
     text-align: center;
 }
 h2{
     text-align: center;
+}
+img{
+    margin: 10px;
+    border: 3px solid rgb(255, 179, 240);
+    border-radius: 7px;
 }
 
 #enviar{
@@ -59,4 +65,14 @@ h2{
     justify-content: center;
     margin-top: 3%;
     border-radius: 5px;
+}
+
+#btlog{
+    background-color: rgba(250, 122, 233, 0.628);
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    border-radius: 5px;
+    padding: 3%;
+    font-size: 20px;
 }
