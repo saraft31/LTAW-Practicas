@@ -21,7 +21,7 @@ let cont_user = 0;
 const Fichero_Usuarios = "chat.json";
 let Usuarios = [];
 //-- Definir el puerto a utilizar
-const PUERTO = 8080;
+const PUERTO = 9090;
 
 //-- Function fecha
 function date(){
@@ -92,8 +92,10 @@ io.on('connection', function(socket){
       if (msg.value == ' '){
         console.log("entra?")
         msg.value = "";
+
       }else{
         io.emit('msg', numero + ": " + msg);
+        win.webContents.send('print', numero + ": " + msg);
       }
  
     });
@@ -118,7 +120,6 @@ io.on('connection', function(socket){
     socket.on('zumbido', () => {
       io.emit('zumbidoRecived', 'Estas recibiendo un zumbido')
     });
-
 
     socket.on('cmd', (msg) => {
         console.log("Cliente: " + socket.id + ': ' + msg);
@@ -165,19 +166,20 @@ electron.app.on('ready', () => {
     //-- La ventana es en realidad.... ¡un navegador!
     win.loadFile("index.html");
 
+
     win.on('ready-to-show', () => {
       win.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
     });
   });
 
-  //-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
+//-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
   //-- renderizado. Al recibirlos se escribe una cadena en la consola
-  electron.ipcMain.handle('test', (event, msg) => {
+  electron.ipcMain.handle('test', async(event, msg) => {
     console.log("-> Mensaje: " + msg);
     //-- Enviar mensaje de prueba
-    io.send(msg);
-    win.webContents.send('msg', msg);
-
+    io.emit('testRecived', msg);
+    win.webContents.send('msg', 'Este mensaje es de prueba!!');
+  
   });
 
 //-- Lanzar servidor

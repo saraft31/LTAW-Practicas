@@ -25,8 +25,10 @@ usuarios.innerHTML = 0;
 
 btn_test.onclick = () => {
     console.log("Botón ON!");
+    const test = "Este mensaje es de prueba!!"
     //-- Enviar mensaje al proceso principal
-    electron.ipcRenderer.invoke('test', "Este mensaje es de prueba!!");
+    electron.ipcRenderer.invoke('test', "Este mensaje es de prueba !!");
+    
 }
 
 //-- Mensaje recibido del proceso MAIN para la ip
@@ -41,6 +43,12 @@ electron.ipcRenderer.on('usuarios', (event, msg) => {
     console.log("Recibido numero de usuarios: " + msg);
     usuarios.innerHTML = msg;
 });
+
+// Comunicacion con main
+electron.ipcRenderer.on('print', (event, msg) => {
+    console.log("Recibido: " + msg);
+    display.innerHTML += msg + '</p>'; 
+  });
 
 //-- Mensaje recibido del proceso MAIN de los usuarios
 electron.ipcRenderer.on('msg', (event, msg) => {
