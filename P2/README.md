@@ -14,5 +14,4 @@ Pedidos: Registro de los pedidos realizados. Cada pedido contiene la siguiente i
 Cuando accedemos a la página de la tienda con la url "[localhost:9000](http://localhost:9090/)" una vez lanzado el el servidor desde el terminal con node nos aparece la página principal (tienda.html) donde tenemos un enlace para realizar el login y las imagenes de cada producto que nos llevarán a ellos pinchando en la imagen. Desde la página de cada producto podemos añadir este al carrito
 
 ## Imágenes
-
 ![](https://github.com/saraft31/LTAW-Practicas/blob/main/P2/imagenes/wiki.png)
