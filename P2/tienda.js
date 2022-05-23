@@ -19,9 +19,10 @@ const PRODUCTO1 = fs.readFileSync('1-sub.html','utf-8');
 const PRODUCTO2 = fs.readFileSync('2-post.html','utf-8');
 const PRODUCTO3 = fs.readFileSync('3-bolis.html','utf-8');
 const PRODUCTO4 = fs.readFileSync('4-cuadernos.html','utf-8');
+const CARRITO = fs.readFileSync('carrito.html','utf-8');
 
 //-- Definir el puerto a utilizar
-const PUERTO = 8080;
+const PUERTO = 9090;
 
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
@@ -52,7 +53,6 @@ function get_cookie(req){
         console.log('No hay cookie');
     }
 }
-
 
 
 //-- Crear el sevidor
@@ -191,6 +191,10 @@ const server = http.createServer(function (req, res) {
             break;
         case '4-cuadernos.html':
             content = PRODUCTO4;
+            get_cookie(req);
+            break;
+        case 'carrito.html':
+            content = CARRITO;
             get_cookie(req);
             break;
 

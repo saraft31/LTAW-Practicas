@@ -27,6 +27,15 @@ h2{
     
 }
 
+#carrito{
+    text-align: center;
+    background-color: rgb(171, 109, 230);
+    width: 70px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(0, 0, 0);
+    box-shadow: 2px 2px 2px rgb(104, 107, 145);
+}
 #casilla{
     border-color:rgb(0, 0, 0);
     width: 250px;
