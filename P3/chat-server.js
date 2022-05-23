@@ -16,7 +16,7 @@ let cont_user = 0;
 const Fichero_Usuarios = "chat.json";
 let Usuarios = [];
 //-- Definir el puerto a utilizar
-const PUERTO = 8080;
+const PUERTO = 9090;
 
 //-- Function fecha
 function date(){
