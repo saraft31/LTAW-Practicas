@@ -11,7 +11,7 @@ Para el intercambio de datos entre los clientes y el servidor se utilizala bibli
 
 ## Funcionamiento 
 
-Hemos realizado un chat-server.js con el funcionamiento del servidor con node y un chat-client.js para visualizar el chat que lanzamos con node chat-server al cual nos podemos conectar desde el navegador con "[localhost:9000](http://localhost:9090/)".
+Hemos realizado un chat-server.js con el funcionamiento del servidor con node y un chat-client.js para visualizar el chat que lanzamos con node chat-server al cual nos podemos conectar desde el navegador con "[localhost:9090](http://localhost:9090/)".
 
 Cuando ejecutamos esto observamos la página web de nuestro chat que que da la bienvenida cuando entras y te dice el numero de usuario que eres y vemos un display donde escribir los mensajes que podemos enviar pulsando 'enter' o el botón enviar. Una vez esto se mostrará el mensaje que hemos escrito y el numero de usario que lo ha escrito.
 En el chat también nos aparece cuando un usuario nuevo se conecta y cuando se desconecta.
