@@ -22,4 +22,4 @@ Cuando se accede al chat cargan los contenidos de la anterior práctica a travé
 
 ## Imágenes
 
-![](https://github.com/saraft31/LTAW-Practicas/blob/main/P4/wiki.png)
+![](https://github.com/saraft31/LTAW-Practicas/blob/main/P4/fotowiki.png)
