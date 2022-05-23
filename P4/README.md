@@ -17,6 +17,9 @@ El servidor principal y desde donde se gestiona la interfaz gráfica de electron
 
 Cuando se accede al chat cargan los contenidos de la anterior práctica a través de la url "[localhost:9000](http://localhost:9090/)", donde se está ejecutando el mini-chat.
 
+## Mejoras
+* Código qr de la ip
+
 ## Imágenes
 
 ![](https://github.com/saraft31/LTAW-Practicas/blob/main/P4/wiki.png)
