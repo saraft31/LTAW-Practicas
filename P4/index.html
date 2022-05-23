@@ -3,7 +3,14 @@
     <head>
 
         <meta charset = "utf-8"> 
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; child-src * 'self' blob: http:;
+        img-src * 'self' data: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+        style-src 'self' 'unsafe-inline' *">
+        
+        <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src 'self' ">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Electron CHAT</title>
          <!-- Only scripts and files from the local machine are allowed -->
@@ -30,6 +37,8 @@
             <br>
             <h2>Dirección IP</h2>
             <p id="info4"></p>
+            <h2>Código QR</h2>
+            <img src="" id="qrcode"></img>
             <br>
         </div>
 

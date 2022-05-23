@@ -1,5 +1,7 @@
 const electron = require('electron');
 const ip = require('ip');
+const { CLOSE_DESCRIPTIONS } = require('websocket/lib/WebSocketConnection');
+const qrcode = require('qrcode');
 
 //-- Obtener elementos de la interfaz
 const info1 = document.getElementById("info1");
@@ -9,6 +11,8 @@ const info4 = document.getElementById("info4");
 const usuarios = document.getElementById("usuarios");
 const btn_test = document.getElementById("btn_test");
 const display = document.getElementById("display");
+const qr = document.getElementById("qrcode");
+
 
 //-- Acceder a la API de node para obtener la info
 //-- Sólo es posible si nos han dado permisos desde
@@ -36,6 +40,9 @@ electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibida Ip: " + msg);
     info4.innerHTML = msg;
     //-- Generar el codigo qr de la url
+    qrcode.toDataURL(msg, function(err, url){
+        qr.src = url;
+    });
 });
 
 //-- Mensaje recibido del proceso MAIN para el numero de usuarios
