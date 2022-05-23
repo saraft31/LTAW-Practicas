@@ -1,7 +1,9 @@
  # Práctica 0
-primera modificación
+La realización de esta práctica consiste en llevar a cabo la wiki de mi página de inicio, la puedes encontrar pinchando [aquí](https://github.com/saraft31/LTAW-Practicas/wiki).
+
 
 ## probando...
+Primera modificación
 mi segundo commit :)
 
 ![](Ejercicio2-img1.gif)
