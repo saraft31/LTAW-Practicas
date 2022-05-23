@@ -54,6 +54,25 @@ function get_cookie(req){
     }
 }
 
+function get_compra(req, res, producto){
+
+    const cookie = req.headers.cookie;
+
+    if(cookie){
+        //-- par de nombre valor 
+        let par = cookie.split(";");
+        par.forEach((element,index)=>{
+            let [nombre, valor] = element.split("=");
+
+
+            if (nombre.trim() === 'carrito') {
+                res.setHeader('Set-Cookie', element + ': ' + producto);
+            }
+
+        });
+    }
+}
+
 
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
@@ -195,7 +214,7 @@ const server = http.createServer(function (req, res) {
             break;
         case 'carrito.html':
             content = CARRITO;
-            get_cookie(req);
+            get_compra(req);
             break;
 
         //-- Si no es ninguna de las anteriores devolver mensaje de error
